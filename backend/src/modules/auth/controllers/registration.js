@@ -64,8 +64,9 @@ const registration = async (req, res) => {
         await newRegisteredUser.save();
 
 
+        // TODO: upcoming time... take another approach...
         // jwt-token and send cookie... ==> into browser 🌐
-        generateTokenAndSetCookie(res, newRegisteredUser._id);
+        // generateTokenAndSetCookie(res, newRegisteredUser._id);
 
 
         // TODO: upcoming time...

@@ -9,7 +9,6 @@
 
 backend/src/modules/connectRequest
 backend/src/modules/notification
-backend/src/modules/post
 
 frontend
 
