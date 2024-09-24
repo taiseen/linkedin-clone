@@ -20,7 +20,7 @@ const updateProfile = async (req, res) => {
 		for (const propertyName of allowedFields) {
 
 			if (body[propertyName]) { // dynamically get user input value here...
-
+				
 				// store into object for update db...
 				updatedInfo[propertyName] = body[propertyName];
 			}
@@ -42,7 +42,7 @@ const updateProfile = async (req, res) => {
 
 
 		const updatedUserInfo = await userModel
-			.findByIdAndUpdate(user.id, { $set: updatedInfo }, { new: true })
+			.findByIdAndUpdate(user._id, { $set: updatedInfo }, { new: true })
 			.select("-password");
 
 
