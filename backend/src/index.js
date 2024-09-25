@@ -24,9 +24,7 @@ app.use(express.static(publicDir)); // Serve static files from the 'public' dire
 app.use(bodyParser.json({ limit: '30mb', extended: true })); // client side body data processing
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
-if (config.env !== "production") {
-    app.use(cors({ origin: config.clientUrl, credentials: true }));
-}
+app.use(cors({ origin: true, credentials: true }));
 
 
 
