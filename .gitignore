@@ -7,7 +7,6 @@
 */pnpm-debug.log*
 
 
-backend/src/modules/connectRequest
 backend/src/modules/notification
 
 frontend
