@@ -8,6 +8,8 @@ import jwt from "jsonwebtoken";
 const protectedRoute = async (req, res, next) => {
 
     const incomingToken = req.cookies[config.token.name]; // dynamically get this token name...
+    console.log(config.token.name);
+    console.log({ incomingToken });
 
 
     // if no token present...
