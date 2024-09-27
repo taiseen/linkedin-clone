@@ -8,7 +8,6 @@ import jwt from "jsonwebtoken";
 const protectedRoute = async (req, res, next) => {
 
     const incomingToken = req.cookies[config.token.name]; // dynamically get this token name...
-    console.log(config.token.name);
     console.log({ incomingToken });
 
 
@@ -40,6 +39,7 @@ const protectedRoute = async (req, res, next) => {
 
 
         next(); // if all OK ==> then go to requested endpoint...
+
 
     } catch (error) {
 

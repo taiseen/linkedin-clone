@@ -7,7 +7,6 @@ import routeNotFound from './helpers/routeNotFound.js';
 import cookieParser from "cookie-parser";
 import config from './config/index.js';
 import dbCon from './connection/db.js';
-import bodyParser from 'body-parser';
 import express from 'express';
 import cors from 'cors';
 
@@ -16,21 +15,15 @@ const app = express();
 const publicDir = 'public';
 
 
-app.use(cookieParser()); // allows us to parse incoming cookies...
 
 app.use(express.json({ limit: "5mb" })); // allows us to parse incoming req.body into json...
 app.use(express.static(publicDir)); // Serve static files from the 'public' directory
 
-app.use(bodyParser.json({ limit: '30mb', extended: true })); // client side body data processing
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
+app.use(cookieParser()); // allows us to parse incoming cookies...
 
 app.use(cors({ origin: config.clientUrl, credentials: true }));
 
 
-const clientUrl = config.clientUrl
-const nodeEnv = process.env.NODE_ENV;
-console.log({ clientUrl });
-console.log({ nodeEnv });
 
 
 
@@ -58,6 +51,14 @@ app.use('/test', (_, res) => res.json({ message: 'Hello Testing... | Api Working
 
 // 🚩 | 404 | Route Not Found, must call at last of the application...
 app.use('/', routeNotFound);
+
+
+// Error handling middleware (should be last)
+app.use((err, req, res, next) => {
+    const errorStack = err.stack
+    console.error({ errorStack });
+    res.status(500).json({ message: 'Something broke!' });
+});
 
 
 app.listen(config.port, () => {
