@@ -5,7 +5,8 @@ import jwt from "jsonwebtoken";
 
 const generateTokenAndSetCookie = (res, userId) => {
 
-    const oneDay = expireTimeHour(24);
+    console.log({ userId });
+    const oneDay = expireTimeHour(24); 
 
 
     // generate token...

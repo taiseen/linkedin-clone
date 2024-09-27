@@ -27,6 +27,11 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors({ origin: config.clientUrl, credentials: true }));
 
 
+const clientUrl = config.clientUrl
+const nodeEnv = process.env.NODE_ENV;
+console.log({ clientUrl });
+console.log({ nodeEnv });
+
 
 
 app.use('/api/v1/auth', authRoutes);

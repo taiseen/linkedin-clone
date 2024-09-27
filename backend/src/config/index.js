@@ -12,7 +12,9 @@ const config = {
 
     dbURL: process.env.MONGODB_URI,
 
-    clientUrl: process.env.CLIENT_URL,
+    clientUrl: process.env.NODE_ENV === 'production'
+        ? process.env.CLIENT_URL
+        : 'http://localhost:7000', // local client url
 
     token: {
         name: process.env.JWT_NAME,
