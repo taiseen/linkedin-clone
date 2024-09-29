@@ -26,10 +26,8 @@
 # 🟢 these following values will be required...
 
 MONGODB_URI = *******
-MONGODB_URI_LOCAL = *******
 
-FRONTEND_LIVE_URL = *******
-FRONTEND_LOCALHOST_URL = *******
+CLIENT_URL = *******
 
 JWT_NAME = *******
 JWT_SECRET = *******
