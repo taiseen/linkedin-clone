@@ -7,9 +7,6 @@
 */pnpm-debug.log*
 
 
-frontend
-
-
 */node_modules
 */.env
 */.env.local
