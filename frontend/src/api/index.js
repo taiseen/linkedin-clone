@@ -4,10 +4,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 // const baseURL = 'http://localhost:5000/api/v1' // local server url
-
-const baseURL = import.meta.env.MODE === "production"
-    ? import.meta.env.VITE_SERVER_URL
-    : 'http://localhost:5000/api/v1' // local server url
+const baseURL = import.meta.env.VITE_SERVER_URL // live server url
 
 
 const api = axios.create({ baseURL, withCredentials: true });
